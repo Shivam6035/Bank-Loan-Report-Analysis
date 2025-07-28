@@ -84,7 +84,14 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
 
    <img width="253" height="75" alt="image" src="https://github.com/user-attachments/assets/ffd16651-561b-4e08-b181-bb4890919086" />
+   
+6.	TOTAL FUNDED AMOUNT PREVIOUS MONTHS , PMTD, (NOV)
 
+      SELECT SUM(loan_amount) AS PMTD_Total_funded_amount FROM financial_loan 
+      where MONTH(issue_date) = 11 and YEAR(issue_date) = 2021
+<img width="316" height="69" alt="image" src="https://github.com/user-attachments/assets/012e0818-7c76-4033-8301-93488e3bbb57" />
+
+     
 
 
 
