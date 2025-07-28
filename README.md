@@ -76,7 +76,15 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
 
    <img width="263" height="83" alt="image" src="https://github.com/user-attachments/assets/c52ebf7e-15e2-4a1d-9ffe-81bd332b73f3" />
-   
+
+   5.TOTAL FUNDED AMOUNT MTD 
+       
+     SELECT SUM(loan_amount) AS MTD_Total_funded_amount FROM financial_loan 
+     where MONTH(issue_date) = 12 and YEAR(issue_date) = 2021
+
+
+   <img width="253" height="75" alt="image" src="https://github.com/user-attachments/assets/ffd16651-561b-4e08-b181-bb4890919086" />
+
 
 
 
