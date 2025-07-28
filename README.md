@@ -43,3 +43,9 @@ This dataset is well-suited for a variety of analytical projects:
 The dataset is generally clean, with one notable exception: the **`emp_title`** column has **1,438 missing values**. This should be addressed during any data preprocessing phase. All other columns are complete, and the data types are consistent.
 
 This detailed overview provides a solid foundation for anyone looking to understand and work with this financial loan dataset.
+
+
+#	ANALYZING THE DATA USNING SQL SERVER MANAGEMENT
+# KEY PERFORMANCE INDICATORS 
+
+
