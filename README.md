@@ -50,7 +50,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
 ### KEY PERFORMANCE INDICATORS 
 1.	TOTAL LAON APPLICATIONS
    
-       select count(id)as Total_Loan_Applications from financial_loan
+         select count(id)as Total_Loan_Applications from financial_loan
 
    
    <img width="275" height="105" alt="image" src="https://github.com/user-attachments/assets/bb5f829b-eb6e-4f3b-ba18-9769d348e789" />
@@ -60,7 +60,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
       select count(id)as MTD_Total_Loan_Applications from financial_loan
       where MONTH(issue_date) = 12 and YEAR(issue_date) = 2021
 
-      <img width="327" height="70" alt="image" src="https://github.com/user-attachments/assets/2e476452-da26-4619-aa7f-6ef60c90fe96" />
+   <img width="327" height="70" alt="image" src="https://github.com/user-attachments/assets/2e476452-da26-4619-aa7f-6ef60c90fe96" />
 
 
       
