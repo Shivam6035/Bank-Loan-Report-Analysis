@@ -175,7 +175,8 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
    20. BAD LOAN PERCENTAGE
 
-           SELECT 
+
+    SELECT 
     (COUNT(CASE WHEN loan_status = 'Charged Off' THEN id END) * 100)/
     COUNT(id) AS Bad_Loan_Percentage
     FROM financial_loan
@@ -184,8 +185,8 @@ This detailed overview provides a solid foundation for anyone looking to underst
    21. BAD LOAN APPLICATIONS
        
        
-           SELECT COUNT(id)  AS BAD_Loan_Applications FROM financial_loan 
-           WHERE loan_status  = 'Charged Off'
+    SELECT COUNT(id)  AS BAD_Loan_Applications FROM financial_loan 
+    WHERE loan_status  = 'Charged Off'
    <img width="277" height="73" alt="image" src="https://github.com/user-attachments/assets/143f0670-45d9-41fd-b066-63a4e0d9cb53" />
 
    22.BAD LOAN FUNDED AMOUNT
@@ -204,7 +205,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
    24.    LOAN STATUS
 
-      SELECT 
+       SELECT 
        loan_status, 
        COUNT(id) AS Total_Loan_Applications,
        SUM(total_payment) AS Total_Amount_Received,
@@ -220,7 +221,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
    
    25.  LOAN STATUS BY MTD
        
-             SELECT 
+    SELECT 
     loan_status,
     SUM(total_payment) AS MTD_Total_amount_received,
     SUM(loan_amount) AS MTD_Total_Funded_Amount
@@ -232,7 +233,8 @@ This detailed overview provides a solid foundation for anyone looking to underst
    26. LOAN amount by months
        
 
-           SELECT , 
+
+    SELECT  
     MONTH(issue_date) AS order_no,
     DATENAME(MONTH , issue_date) AS month_name,
     COUNT(id) AS Total_Loan_Applications,
@@ -246,7 +248,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
    27. loan by address_state
        
 
-           SELECT
+    SELECT
     address_state,
     COUNT(id) AS Total_Loan_Applications,
     SUM(loan_amount) AS Total_Funded_Amount,
@@ -259,9 +261,9 @@ This detailed overview provides a solid foundation for anyone looking to underst
    27. LOAN BY STATE
        
 
-           SELECT -- loan by address_state, 
-           address_state,
-      COUNT(id) AS Total_Loan_Applications,
+    SELECT -- loan by address_state, 
+    address_state,
+    COUNT(id) AS Total_Loan_Applications,
     SUM(loan_amount) AS Total_Funded_Amount,
     Sum(total_payment) AS Total_Received_Amount
     FROM financial_loan
@@ -274,7 +276,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
 
            
-           SELECT, 
+    SELECT
     address_state,
     COUNT(id) AS Total_Loan_Applications,
     SUM(loan_amount) AS Total_Funded_Amount,
@@ -287,7 +289,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
    29. term wise
 
-            SELECT -- loan by address_state, by term, 
+    SELECT -- loan by address_state, by term, 
     term,
     COUNT(id) AS Total_Loan_Applications,
     SUM(loan_amount) AS Total_Funded_Amount,
@@ -311,7 +313,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
    31. loan by address_state, by emp_length , COUNT(id)
 
-            SELECT , 
+    SELECT , 
     emp_length,
     COUNT(id) AS Total_Loan_Applications,
     SUM(loan_amount) AS Total_Funded_Amount,
@@ -324,7 +326,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
    
    31. LOAN AMOUNT BY PURPOSE
 
-             SELECT, 
+    SELECT, 
     purpose,
     COUNT(id) AS Total_Loan_Applications,
     SUM(loan_amount) AS Total_Funded_Amount,
@@ -336,7 +338,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
    
    32. LOAN AMOUNT BY HOME OWNERHIP
 
-             SELECT -- loan by address_state, by emp_length, 
+    SELECT -- loan by address_state, by emp_length, 
     home_ownership,
     COUNT(id) AS Total_Loan_Applications,
     SUM(loan_amount) AS Total_Funded_Amount,
@@ -348,7 +350,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
    33. by filter grade
 
-            SELECT
+    SELECT
     home_ownership,
     COUNT(id) AS Total_Loan_Applications,
     SUM(loan_amount) AS Total_Funded_Amount,
@@ -361,7 +363,7 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
    33. by GRDE AND STATE FILTER
 
-                SELECT
+    SELECT
     home_ownership,
     COUNT(id) AS Total_Loan_Applications,
     SUM(loan_amount) AS Total_Funded_Amount,
