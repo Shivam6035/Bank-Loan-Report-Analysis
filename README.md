@@ -85,11 +85,65 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
    <img width="253" height="75" alt="image" src="https://github.com/user-attachments/assets/ffd16651-561b-4e08-b181-bb4890919086" />
    
-6.	TOTAL FUNDED AMOUNT PREVIOUS MONTHS , PMTD, (NOV)
+  6.	TOTAL FUNDED AMOUNT PREVIOUS MONTHS , PMTD, (NOV)
 
-   SELECT SUM(loan_amount) AS PMTD_Total_funded_amount FROM financial_loan 
-   where MONTH(issue_date) = 11 and YEAR(issue_date) = 2021
-<img width="316" height="69" alt="image" src="https://github.com/user-attachments/assets/012e0818-7c76-4033-8301-93488e3bbb57" />
+    SELECT SUM(loan_amount) AS PMTD_Total_funded_amount FROM financial_loan 
+    where MONTH(issue_date) = 11 and YEAR(issue_date) = 2021
+  <img width="316" height="69" alt="image" src="https://github.com/user-attachments/assets/012e0818-7c76-4033-8301-93488e3bbb57" />
+
+   7. TOTAL AMOUNT RECEIVED BY BANK THORUGH USERS
+
+    SELECT SUM(total_payment) AS Total_Amount_recieved FROM financial_loan
+
+   <img width="283" height="80" alt="image" src="https://github.com/user-attachments/assets/6cda7079-d9bc-4ceb-be38-87f5ac493699" />
+   
+   8.	TOTAL AMOUNT RECEIVED BY BANK THORUGH USERS  MTD
+
+    SELECT SUM(total_payment) AS MTD_Total_Amount_recieved FROM financial_loan
+    where MONTH(issue_date) = 12 and YEAR(issue_date) = 2021
+   <img width="280" height="80" alt="image" src="https://github.com/user-attachments/assets/a2c30f25-5ad2-41ad-8dac-368f965b82c9" />
+
+   9. TOTAL AMOUNT RECEIVED BY BANK THORUGH USERS  PMTD
+       
+    SELECT SUM(total_payment) AS PMTD_Total_Amount_recieved FROM financial_loan
+    where MONTH(issue_date) = 11 and YEAR(issue_date) = 2021 
+   <img width="319" height="64" alt="image" src="https://github.com/user-attachments/assets/17b3f43c-4b2b-4dc5-9839-d5da0f2841a3" />
+
+   10. AVG_INTREST_RATE  OF BANK
+       
+    SELECT ROUND(AVG(int_rate),4) * 100 AS Avg_Intrest_Rate FROM financial_loan
+   <img width="219" height="64" alt="image" src="https://github.com/user-attachments/assets/dfe3e5a3-459c-4edb-95b4-d8486fba406f" />
+   
+   11. AVG_INTREST_RATE  OF BANK   MTD
+
+    SELECT ROUND(AVG(int_rate),4) * 100 AS MTD_Avg_Intrest_Rate FROM financial_loan 
+    where MONTH(issue_date) = 12 and YEAR(issue_date) = 2021
+   <img width="263" height="72" alt="image" src="https://github.com/user-attachments/assets/af2dc8f9-ab6a-4d04-a33e-7e3eb5121a06" />
+
+   12.AVG_INTREST_RATE  OF BANK PMTD 
+
+    SELECT ROUND(AVG(int_rate),4) * 100 AS PMTD_Avg_Intrest_Rate FROM financial_loan 
+    where MONTH(issue_date) = 11 and YEAR(issue_date) = 2021
+   <img width="292" height="80" alt="image" src="https://github.com/user-attachments/assets/fd15ea8c-b551-4d8c-95f4-ad24e7ca355d" />
+   
+   13. AVG_DTI
+       
+    SELECT ROUND(AVG(dti),4) * 100 AS Average_DTI FROM financial_loan
+   <img width="203" height="77" alt="image" src="https://github.com/user-attachments/assets/49dda2ce-7611-4e5f-83b1-cc1127e93b93" />
+
+   14. AVG_DTI MTD
+
+    SELECT ROUND(AVG(dti),4) * 100 AS MTD_Average_DTI FROM financial_loan
+    WHERE MONTH(issue_date) = 12 AND YEAR(issue_date) = 2021
+
+
+
+    
+
+
+
+
+     
 
      
 
