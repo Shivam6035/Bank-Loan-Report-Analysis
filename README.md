@@ -70,6 +70,16 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
    <img width="334" height="73" alt="image" src="https://github.com/user-attachments/assets/a664a00f-10da-4fa8-82bc-557aab525a1d" />
 
+   4.	TOTAL FUNDED AMOUNT
+
+      SELECT SUM(loan_amount) AS Total_funded_amount FROM financial_loan
+
+
+   <img width="263" height="83" alt="image" src="https://github.com/user-attachments/assets/c52ebf7e-15e2-4a1d-9ffe-81bd332b73f3" />
+   
+
+
+
 
 
 
