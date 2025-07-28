@@ -135,6 +135,281 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
     SELECT ROUND(AVG(dti),4) * 100 AS MTD_Average_DTI FROM financial_loan
     WHERE MONTH(issue_date) = 12 AND YEAR(issue_date) = 2021
+   <img width="231" height="75" alt="image" src="https://github.com/user-attachments/assets/5f59db79-03cb-4554-85eb-0c902acd3f73" />
+   
+   15 . AVG_DTI PMTD
+
+    SELECT ROUND(AVG(dti),4) * 100 AS PMTD_Average_DTI FROM financial_loan
+    WHERE MONTH(issue_date) = 11  AND YEAR(issue_date) = 2021
+   <img width="258" height="73" alt="image" src="https://github.com/user-attachments/assets/12924068-b043-4812-a613-510c0de94bd0" />
+   
+   16. GOOD LOAN PERCENTAGE
+       
+    SELECT  
+    ( COUNT (CASE WHEN loan_status = 'Fully Paid' OR loan_status  = 'Current' THEN id END)* 100)
+    /
+    COUNT(id) AS Good_loan_percentage
+    FROM financial_loan
+   <img width="270" height="80" alt="image" src="https://github.com/user-attachments/assets/eb94e29e-8a48-47ce-809a-c425b1c6082a" />
+
+   17. GOOD LOAN APPLICATION
+       
+    SELECT COUNT(id)  AS Good_Loan_Applications FROM financial_loan
+    WHERE loan_status  = 'Fully Paid' OR loan_status = 'Current'
+    
+   <img width="263" height="48" alt="image" src="https://github.com/user-attachments/assets/82b2410d-6db3-4577-890e-5979e55db861" />
+
+   18. GOOD LOAN FUNDED AMOUNT
+       
+    SELECT SUM(loan_amount)  AS Good_Loan_FUNDED_Amount FROM financial_loan -- GOOD LOAN FUNDED AMOUNT
+    WHERE loan_status  = 'Fully Paid' OR loan_status = 'Current'
+   <img width="333" height="69" alt="image" src="https://github.com/user-attachments/assets/9b801503-2faa-4773-b8cf-e7da94db6d1b" />
+
+   19. GOOD LOAN TOTAL AMOUNT REICEVED
+   
+
+    SELECT SUM(total_payment)  AS Good_Loan_Amount_RECIVED FROM financial_loan 
+    WHERE loan_status  = 'Fully Paid' OR loan_status = 'Current'
+
+   <img width="333" height="77" alt="image" src="https://github.com/user-attachments/assets/03364f59-36f4-41e4-9be7-c32c2778ac96" />
+
+   20. BAD LOAN PERCENTAGE
+
+           SELECT 
+    (COUNT(CASE WHEN loan_status = 'Charged Off' THEN id END) * 100)/
+    COUNT(id) AS Bad_Loan_Percentage
+    FROM financial_loan
+   <img width="259" height="69" alt="image" src="https://github.com/user-attachments/assets/0bca3ad1-20aa-41db-b461-2e765f7ab0d3" />
+
+   21. BAD LOAN APPLICATIONS
+       
+       
+           SELECT COUNT(id)  AS BAD_Loan_Applications FROM financial_loan 
+           WHERE loan_status  = 'Charged Off'
+   <img width="277" height="73" alt="image" src="https://github.com/user-attachments/assets/143f0670-45d9-41fd-b066-63a4e0d9cb53" />
+
+   22.BAD LOAN FUNDED AMOUNT
+
+    SELECT SUM(loan_amount)  AS BAD_Loan_FUNDED_Amount FROM financial_loan 
+    WHERE loan_status  = 'Charged Off'
+   <img width="308" height="69" alt="image" src="https://github.com/user-attachments/assets/45ffe029-cfa0-42eb-ad5a-da236d7d8455" />
+
+   23. BAD LOAN TOTAL AMOUNT
+
+
+    SELECT SUM(total_payment)  AS BAD_Loan_Amount_Recived FROM financial_loan 
+    WHERE loan_status  = 'Charged off'
+   <img width="309" height="86" alt="image" src="https://github.com/user-attachments/assets/8db9c182-2afe-44e6-b0b0-57d803e594da" />
+
+
+   24.    LOAN STATUS
+
+      SELECT 
+       loan_status, 
+       COUNT(id) AS Total_Loan_Applications,
+       SUM(total_payment) AS Total_Amount_Received,
+       SUM(loan_amount) AS Total_Funded_Amount,
+       AVG(int_rate * 100) AS Intrest_Rate,
+       AVG(dti * 100) as DTI
+
+    FROM
+      financial_loan
+    GROUP BY
+      loan_status
+   <img width="940" height="150" alt="image" src="https://github.com/user-attachments/assets/b5967808-53de-4240-96ad-e2d5b4fb9b59" />
+   
+   25.  LOAN STATUS BY MTD
+       
+             SELECT 
+    loan_status,
+    SUM(total_payment) AS MTD_Total_amount_received,
+    SUM(loan_amount) AS MTD_Total_Funded_Amount
+    FROM financial_loan
+    WHERE MONTH(issue_date) = 12
+    GROUP BY loan_status
+   <img width="667" height="130" alt="image" src="https://github.com/user-attachments/assets/fdfc3995-5549-4498-87f8-7914990ee245" />
+
+   26. LOAN amount by months
+       
+
+           SELECT , 
+    MONTH(issue_date) AS order_no,
+    DATENAME(MONTH , issue_date) AS month_name,
+    COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    GROUP BY MONTH(issue_date) , DATENAME(MONTH, issue_date)
+    ORDER BY MONTH(issue_date)
+   <img width="883" height="400" alt="image" src="https://github.com/user-attachments/assets/5072f989-0ab5-40a9-99f6-6e4b326d3e89" />
+
+   27. loan by address_state
+       
+
+           SELECT
+    address_state,
+    COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    GROUP BY address_state
+    ORDER BY address_state
+   <img width="797" height="836" alt="image" src="https://github.com/user-attachments/assets/38f654c8-7fee-4fe5-96f0-a6d0d0ca3726" />
+
+   27. LOAN BY STATE
+       
+
+           SELECT -- loan by address_state, 
+           address_state,
+      COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    GROUP BY address_state
+    ORDER BY SUM(loan_amount) DESC
+   <img width="783" height="863" alt="image" src="https://github.com/user-attachments/assets/a06a3c3c-514d-4de0-a74a-3995bca8febf" />
+   
+
+   28. LOAN ADRESS STATE BY COUNT(ID)
+
+
+           
+           SELECT, 
+    address_state,
+    COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    GROUP BY address_state
+    ORDER BY  COUNT(id) DESC
+
+   <img width="783" height="403" alt="image" src="https://github.com/user-attachments/assets/aa8cc770-ae7e-4473-9dce-1b4f0028aa93" />
+
+   29. term wise
+
+            SELECT -- loan by address_state, by term, 
+    term,
+    COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    GROUP BY term
+    ORDER BY term
+   <img width="783" height="117" alt="image" src="https://github.com/user-attachments/assets/dabb72bb-fb87-4e65-8e7d-a5f90c65ee59" />
+
+   30. LOAN ADRESS BY STATE
+
+    SELECT -- loan by address_state, by emp_length, 
+    emp_length,
+    COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    GROUP BY emp_length
+    ORDER BY emp_length
+   <img width="769" height="356" alt="image" src="https://github.com/user-attachments/assets/0613ca25-a4b4-486d-bab5-628489ef473c" />
+
+   31. loan by address_state, by emp_length , COUNT(id)
+
+            SELECT , 
+    emp_length,
+    COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    GROUP BY emp_length
+    ORDER BY COUNT(id) DESC
+
+   <img width="767" height="361" alt="image" src="https://github.com/user-attachments/assets/ac8184c5-31e6-4f54-9afd-cad82eeaea05" />
+   
+   31. LOAN AMOUNT BY PURPOSE
+
+             SELECT, 
+    purpose,
+    COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    GROUP BY purpose
+    ORDER BY COUNT(id) DESC
+   <img width="842" height="469" alt="image" src="https://github.com/user-attachments/assets/47b4c353-4c45-4be3-a714-1ca10f04ebeb" />
+   
+   32. LOAN AMOUNT BY HOME OWNERHIP
+
+             SELECT -- loan by address_state, by emp_length, 
+    home_ownership,
+    COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    GROUP BY home_ownership
+    ORDER BY COUNT(id) DESC
+   <img width="836" height="211" alt="image" src="https://github.com/user-attachments/assets/4f73d51d-5c48-4515-9c6f-fe3d12832f4f" />
+
+   33. by filter grade
+
+            SELECT
+    home_ownership,
+    COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    WHERE grade = 'A' -- by grade filter
+    GROUP BY home_ownership
+    ORDER BY COUNT(id) DESC
+   <img width="803" height="178" alt="image" src="https://github.com/user-attachments/assets/13cbc32d-a2b9-4f04-bb6c-ab5339fc98d2" />
+
+   33. by GRDE AND STATE FILTER
+
+                SELECT
+    home_ownership,
+    COUNT(id) AS Total_Loan_Applications,
+    SUM(loan_amount) AS Total_Funded_Amount,
+    Sum(total_payment) AS Total_Received_Amount
+    FROM financial_loan
+    WHERE grade = 'A' AND address_state = 'CA' -- by grade filter
+    GROUP BY home_ownership
+    ORDER BY COUNT(id) DESC
+
+   <img width="819" height="159" alt="image" src="https://github.com/user-attachments/assets/e79cd423-4463-4337-9549-6b76c3504d28" />
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+ 
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
 
 
 
