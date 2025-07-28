@@ -62,6 +62,16 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
    <img width="327" height="70" alt="image" src="https://github.com/user-attachments/assets/2e476452-da26-4619-aa7f-6ef60c90fe96" />
 
+   3.	TOTAL LOAN APPLICATION MONTHS TO DATE, 12TH MONTHS
+      
+      select count(id)as PMTD_Total_Loan_Applications from financial_loan – NOVEMBER
+      where MONTH(issue_date) = 11 and YEAR(issue_date) = 2021
+
+
+   <img width="334" height="73" alt="image" src="https://github.com/user-attachments/assets/a664a00f-10da-4fa8-82bc-557aab525a1d" />
+
+
+
 
       
 
