@@ -48,9 +48,9 @@ This detailed overview provides a solid foundation for anyone looking to underst
 #	ANALYZING THE DATA USNING SQL SERVER MANAGEMENT
 
 ### KEY PERFORMANCE INDICATORS 
-1.	TOTAL LAON APPLICATIONS
+   1.	TOTAL LAON APPLICATIONS
    
-         select count(id)as Total_Loan_Applications from financial_loan
+        select count(id)as Total_Loan_Applications from financial_loan
 
    
    <img width="275" height="105" alt="image" src="https://github.com/user-attachments/assets/bb5f829b-eb6e-4f3b-ba18-9769d348e789" />
