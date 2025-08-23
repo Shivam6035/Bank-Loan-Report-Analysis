@@ -377,7 +377,8 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
 # TABLEAU DASHBOARD
 
-### SUMMARY DASHBOARD
+###                             SUMMARY DASHBOARD
+
 <img width="1203" height="677" alt="image" src="https://github.com/user-attachments/assets/c8878c9b-ff0e-4de6-aae5-7321ff7dad2c" />
 <img width="1211" height="677" alt="image" src="https://github.com/user-attachments/assets/8de297df-8460-4e1e-aff0-6a0f3f7d1612" />
 <img width="1207" height="681" alt="image" src="https://github.com/user-attachments/assets/f00b6ce3-824a-45cd-a343-7a718f1e375c" />
@@ -388,7 +389,8 @@ This detailed overview provides a solid foundation for anyone looking to underst
 
 
 
-### OVERVIEW DASHBOARD
+###                             OVERVIEW DASHBOARD
+
 <img width="1209" height="681" alt="image" src="https://github.com/user-attachments/assets/010784b9-76c1-4df9-b32e-889fa7be91e8" />
 <img width="1211" height="684" alt="image" src="https://github.com/user-attachments/assets/a2079c63-9923-4ef9-9f83-63a81b99358c" />
 <img width="1205" height="679" alt="image" src="https://github.com/user-attachments/assets/5965de9d-b372-4606-9a08-1301834d661a" />
